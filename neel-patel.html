@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neel Patel - CEO & Founder | NPATEL GROUP LTD</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #00ffff;
+            --secondary-color: #ffff00;
+            --background-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #ffff00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+          position: fixed;
+          width: 100%;
+          z-index: 1000;
+          padding: 1rem 0;
+          background: rgba(10, 10, 10, 0.8);
+          backdrop-filter: blur(10px);
+      }
+
+      nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .logo {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--primary-color);
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-decoration: none;
+      }
+
+      .logo a {
+        text-decoration: none;
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+          display: none;
+      }
+
+      .mobile-menu-btn {
+          display: block;
+          background: none;
+          border: none;
+          color: var(--text-color);
+          font-size: 1.5rem;
+          cursor: pointer;
+      }
+
+      .mobile-menu {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: var(--background-color);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          z-index: 1001;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease-in-out;
+      }
+
+      .mobile-menu.active {
+          transform: translateX(0);
+      }
+
+      .mobile-menu a {
+          color: var(--text-color);
+          text-decoration: none;
+          font-size: 1.5rem;
+          margin: 1rem 0;
+          font-weight: 600;
+          transition: color 0.3s ease;
+      }
+
+      .mobile-menu a:hover {
+          color: var(--primary-color);
+      }
+
+      .close-menu-btn {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: none;
+          border: none;
+          color: var(--text-color);
+          font-size: 1.5rem;
+          cursor: pointer;
+      }
+
+      @media (min-width: 768px) {
+          .container {
+              padding: 0 2rem;
+          }
+
+          .mobile-menu-btn {
+              display: none;
+          }
+
+          .nav-links {
+              display: flex;
+              gap: 2rem;
+          }
+
+          .nav-links a {
+              color: var(--text-color);
+              text-decoration: none;
+              font-weight: 600;
+              transition: color 0.3s ease;
+          }
+
+          .nav-links a:hover {
+              color: var(--primary-color);
+          }
+
+          .team-hero {
+              padding: 8rem 0 4rem;
+          }
+
+          .team-section {
+              padding: 4rem 0;
+          }
+
+          .team-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+
+          .team-member img {
+              width: 150px;
+              height: 150px;
+          }
+
+      }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about-content, .experience-content, .skills-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .experience-item, .skill-category {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover, .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-item h3, .skill-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright a{
+            text-decoration: none;
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .about-content, .experience-content, .skills-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"><a href="index.html">NPATEL</a></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="team.html">Team</a>
+            </div>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+  
+    <div class="mobile-menu">
+        <button class="close-menu-btn">✕</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Team</a>
+    </div>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <img src="Users/np.jpg" alt="Neel Patel">
+                <h1>Neel Patel</h1>
+                <p>CEO & Founder at NPATEL GROUP LTD | Tech Innovator | Young Entrepreneur</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/neelpatel" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/neelpatel" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="mailto:neel.p@npatel.co.uk"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div>
+                        <p>As the CEO and Founder of NPATEL GROUP LTD, I lead a dynamic team in delivering cutting-edge technology solutions. My passion for innovation and problem-solving drives our company's mission to transform businesses through digital excellence.</p>
+                    </div>
+                    <div>
+                        <p>With a strong foundation in IT and web development, I combine technical expertise with entrepreneurial spirit to create impactful solutions for our clients. My goal is to inspire and lead the next generation of tech innovators.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="experience-content">
+                    <div class="experience-item">
+                        <h3>CEO & Founder</h3>
+                        <p>NPATEL GROUP LTD</p>
+                        <p>2024 - Present</p>
+                        <ul>
+                            <li>Lead a team of 10 in developing innovative tech solutions</li>
+                            <li>Oversee project management</li>
+                            <li>Drive company growth and strategic partnerships</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Accountant</h3>
+                        <p>Tax Solvers</p>
+                        <p>June 2024</p>
+                        <ul>
+                            <li>Conducted financial analysis and organised client records</li>
+                            <li>Improved attention to detail and understanding of financial systems</li>
+                            <li>Enhanced professional workplace and communication skills</li>
+                            <li>Worked with colleagues to ensure the accuracy of financial reports and client documentation</li>
+                            <li>Gained exposure to industry-standard software used for accounting and finance management</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Product Development</h3>
+                        <p>Startup Sherpas and Aviva</p>
+                        <p>July 2023 – September 2023</p>
+                        <ul>
+                            <li>Developed ideas for creating a health ecosystem for young people as part of a team of 100</li>
+                            <li>Conducted industry and customer research, generating creative solutions</li>
+                            <li>Presented 10 finalised ideas to the client with a focus on practical implementation</li>
+                            <li>Worked with colleagues to ensure the accuracy of financial reports and client documentation</li>
+                            <li>Demonstrated skills in research, innovation, and team collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skills-content">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">Server Administration</span>
+                            <span class="skill-tag">Cloud Computing</span>
+                            <span class="skill-tag">Active Directory</span>
+                            <span class="skill-tag">Proxmox</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Business Skills</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">Strategic Planning</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Adaptability</span>
+                            <span class="skill-tag">Critical Thinking</span>
+                            <span class="skill-tag">Attention to Detail</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container" style="text-align: center;">
+                <h2>Let's Connect</h2>
+                <p>Interested in collaborating or learning more about NPATEL GROUP LTD?</p>
+                <a href="mailto:neel.p@npatel.co.uk" class="cta-button">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>NPATEL GROUP</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="team.html">Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>PicHub</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.pichub.co.uk/">Home</a></li>
+                        <li><a href="https://www.pichub.co.uk/Gallery/gallery.html">Gallery</a></li>
+                        <li><a href="https://www.pichub.co.uk/About-US/About%20US.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 NPATEL GROUP PVT. LTD. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="https://forms.office.com/r/45p0qWpEpw">Join Us</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const closeMenuBtn = document.querySelector('.close-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+    
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+    
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
